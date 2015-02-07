@@ -1,0 +1,8 @@
+extends layout.jade
+
+block content
+    each item in accounts
+        div.row
+            div.eight.columns               
+                a(href='/account/view/' + item.id)
+                    = item.username            
