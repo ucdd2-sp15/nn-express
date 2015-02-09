@@ -1,5 +1,10 @@
 extends layout
 
 block content
-    h1= account.name
-    h3= account.username
+	h1= account.name
+	h3= account.username
+	div.row
+	each item in images
+		div.two.columns
+			a(href='/note/view/'+item.id,title:item.context.title)
+				img(src=item.context.site.image_url)
