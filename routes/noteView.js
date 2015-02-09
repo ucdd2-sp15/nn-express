@@ -2,8 +2,13 @@ module.exports = function(app) {
 
     app.get('/note/view/:id', function(req, res) {
 
-        // TODO: get the correct note by id
-        var note = app.data.notes[17]
+        var _ = require('lodash')
+        var id = req.params.id;
+
+        var note = _.find(app.data.notes, function(n) {
+            if (n.id == id) return true;
+            return false;
+        });
 
         res.render('noteView.jade', {
             note: note
