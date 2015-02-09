@@ -2,7 +2,15 @@ extends layout
 
 block content
     h1= note.content
-    each m in note.medias
-        - // compute a url to an automatically resized image (by Cloudinary)
-        - var url = m.link.replace('upload/','upload/w_500,c_fit/')
-        img(src=url, width="500")
+    div.row
+        div.seven.columns
+            each m in note.medias
+                - // compute a url to an automatically resized image (by Cloudinary)
+                - var url = m.link.replace('upload/','upload/w_500,c_fit/')
+                img(src=url, width="500")
+        div.five.columns
+            h5= note.account.username
+            - var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
+            - d.setUTCMilliseconds(note.created_at);
+            h5= d
+
