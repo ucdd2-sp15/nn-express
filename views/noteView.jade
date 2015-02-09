@@ -9,8 +9,10 @@ block content
                 - var url = m.link.replace('upload/','upload/w_500,c_fit/')
                 img(src=url, width="500")
         div.five.columns
-            h5= note.account.username
+            h5= "User: " +  note.account.username
             - var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
             - d.setUTCMilliseconds(note.created_at);
-            h5= d
+            h5= "Date: " + (d.getMonth()+1) + '/' + d.getDate() + '/' +  d.getFullYear()
+            p= note.context.description
+            p="lat, long: " + note.latitude + ", " + note.longitude
 
