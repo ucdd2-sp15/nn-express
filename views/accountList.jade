@@ -3,6 +3,12 @@ extends layout.jade
 block content
     each item in accounts
         div.row
-            div.eight.columns               
+            div.two.columns               
                 a(href='/account/view/' + item.id)
-                    = item.username            
+                    = item.username   
+            div.three.columns               
+                    = item.name   
+            div.four.columns               
+                    = item.email 
+            div.two.columns               
+                    = item.created_at            
