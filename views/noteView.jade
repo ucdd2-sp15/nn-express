@@ -14,3 +14,16 @@ block content
 				p #{note.context.description} 
 				p Latitude: #{note.latitude} Longitude: #{note.longitude}
 			
+
+	each f in note.feedbacks
+		div.row 
+			div.four.columns
+				img(src=f.account.icon_url, width="50")
+		div.row    
+			div.two.columns            
+				a(href='/account/view/' + f.account.id)
+					= f.account.username + ' :'
+		div.row
+			div.six.columns
+			div.four.columns
+				= f.content
