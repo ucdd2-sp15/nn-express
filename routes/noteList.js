@@ -15,7 +15,16 @@ module.exports = function(app) {
         notes = notes.slice((page - 1) * perPage, page * perPage)
 
         // TODO: calculate the correct array of page numbers for rendering the paginator
-        var pageNumbers = _.range(1, length/perPage + 1)
+        var pageCount = length / perPage + 1
+        var start = page - 3
+        start = start <= 1 ? 2 : start
+        var end = start + 6
+        end = end > pageCount ? Math.floor(pageCount) : end
+        var pageNumbers = _.range(start, end)
+        var s = [1]
+        var e = [Math.floor(pageCount)]
+        pageNumbers = s.concat(pageNumbers)
+        pageNumbers = pageNumbers.concat(e)
 
         res.render('noteList.jade', {
             notes: notes,
