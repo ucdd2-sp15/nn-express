@@ -13,7 +13,6 @@ module.exports = function(app) {
 		}
 
 	    	var id = req.params.id
-	        var account = app.data.accounts[5]
 	        var notes = app.data.notes.filter(function(item){
 	            if(item.account){
 	            	if(item.account.id){
