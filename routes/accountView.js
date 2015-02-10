@@ -6,7 +6,7 @@ module.exports = function(app) {
 
 
         // var account = app.data.accounts[5]
-
+		var notes = app.data.notes
         var account = _.find(app.data.accounts, {'id': Number(req.params.id)})
         // need to cast the req.params.id as a number, because that request is originally a string
         // therefore if you don't cast you get a type mismatch
