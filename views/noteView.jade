@@ -12,13 +12,16 @@ block content
             - var date = new Date(note.created_at)
             - var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
             - var mapurl = 'http://maps.google.com/?q=' + note.latitude  + ',' + note.longitude
-            
-            strong= note.account.name
+
+            strong
+                =note.account.name + " (" + note.account.username + ")"
+                image(src=note.account.icon_url, height="40", align="right")
             p= "Posted: " + months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()
             
             strong= "Location of Photograph"
-            p
-                a(href=mapurl)= "Lat/Long: " + note.latitude + ", " + note.longitude
+            p= note.context.site.description + ": "
+                a(href=mapurl)= note.latitude + ", " + note.longitude
+            
             p= note.context.description
 
     h3= "Feedback about this note"
