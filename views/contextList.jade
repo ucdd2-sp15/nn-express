@@ -1,8 +1,11 @@
 extends layout.jade
 
 block content
-    each item in contexts
-        div.row
-            div.eight.columns               
-                a(href='/context/view/' + item.id)
-                    = item.title
+    each list in sites
+        h3= list
+        each item in contexts
+            if (item.site.description === list)
+                div.row
+                    div.eight.columns               
+                        a(href='/context/view/' + item.id)
+                            = item.title
