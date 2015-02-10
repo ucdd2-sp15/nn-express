@@ -1,8 +1,18 @@
 extends layout.jade
 
 block content
-    each item in accounts
-        div.row
-            div.eight.columns               
-                a(href='/account/view/' + item.id)
-                    = item.username            
+    table.u-full-width
+        thead
+            tr
+                th Name
+                th Email
+                th Avatar
+        tbody
+        each item in accounts
+            tr
+                td(width="70%")
+                     img(src=item.icon_url, width="50")
+                td= item.email
+                td 
+                    a(href='/account/view/' + item.id)
+                        = item.username
