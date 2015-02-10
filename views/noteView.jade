@@ -13,3 +13,19 @@ block content
             h6= "Context: " + note.context.description 
             h6= "Latitude: " + note.latitude
             h6= "Longitude: " + note.longitude
+    div.row
+        div.six.columns
+            each fb in note.feedbacks
+                div.row
+                    if fb.kind == "like"
+                        div.twelve.columns
+                            h6= "Like: " + fb.content
+                    else if fb.kind == "Landmark"
+                        div.twelve.columns
+                            h6= fb.kind + ": " + fb.content
+                    else if fb.kind == "comment"
+                        div.twelve.columns
+                            h6= "Comment: " + fb.content
+                    else
+                        div.twelve.columns
+                            h6= fb.kind + ": " + fb.content
