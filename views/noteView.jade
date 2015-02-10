@@ -21,7 +21,7 @@ block content
         div.row
             div.three.columns 
                 b Context :
-            div.sex.columns
+            div.ten.columns
                 =note.context.description
         div.row
             div.three.columns 
@@ -33,4 +33,9 @@ block content
                 b Longtitude :
             div.three.columns
                 =note.longitude
+        div.row
+            div.three.columns 
+                b Feedback :
+            div.ten.columns
+                =note.feedbacks[0].account.consent
         
