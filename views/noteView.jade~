@@ -9,7 +9,7 @@ block content
                 - var url = m.link.replace('upload/','upload/w_500,c_fit/')
                 img(src=url, width="500")
         div.four.columns
-            h6= "Username: " + note.account.username
-            h6= "Context: " + note.context.description 
-            h6= "Latitude: " + note.latitude
-            h6= "Longitude: " + note.longitude
+            h6= "username: " + note.account.username
+            h6= "context: " + note.context.description 
+            h6= "latitude: " + note.latitude
+            h6= "longitude: " + note.longitude
