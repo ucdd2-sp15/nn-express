@@ -11,10 +11,18 @@ block content
         div.six.columns
             - var date = new Date(note.created_at)
             - var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            - var mapurl = 'http://maps.google.com/?q=' + note.latitude  + ',' + note.longitude
             
             strong= note.account.name
-            p= months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()
+            p= "Posted: " + months[date.getMonth()] + " " + date.getDate() + ", " + date.getFullYear()
             
             strong= "Location of Photograph"
-            p= "Lat/Long: " + note.longitude + ", " + note.latitude
+            p
+                a(href=mapurl)= "Lat/Long: " + note.latitude + ", " + note.longitude
             p= note.context.description
+
+    h3= "Feedback about this note"
+    each feedback in note.feedbacks
+        if feedback.kind === "comment"
+            strong= feedback.account.name + ":"
+            p= feedback.content
