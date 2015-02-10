@@ -15,4 +15,16 @@ block content
             h5= "Date: " + (d.getMonth()+1) + '/' + d.getDate() + '/' +  d.getFullYear()
             p= note.context.description
             p="lat, long: " + note.latitude + ", " + note.longitude
+    div.row
+        p &nbsp
+        h2 Feedback
+        each feedback in note.feedbacks
+            if (feedback.kind == 'comment')
+                div.one.column
+                    img(src=feedback.account.icon_url)
+                div.nine.columns
+                    p(style='font-weight:bold;')= feedback.account.username
+                div.offset-by-one.column
+                    p= feedback.content
+
 
