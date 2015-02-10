@@ -1,17 +1,14 @@
-var _ = require('lodash')
 module.exports = function(app) {
 
     app.get('/account/view/:id', function(req, res) {
 
-        var account = app.data.accounts;
-        
-        var rs = _.find(account, function(acct){
-            if (acct.id == Number(req.params.id))
-                return true;
-            });
+        var id = req.params.id
+        var account = app.data.accounts[id]
+        var note = app.data.notes
 
         res.render('accountView.jade', {
-            account: rs
+            account: account,
+            note: note
         })
     })
 
