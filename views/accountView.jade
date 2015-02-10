@@ -3,3 +3,7 @@ extends layout
 block content
     h1= account.name
     h3= account.username
+    each note in notes
+        if note.medias && note.medias.length > 0
+            - var url = note.medias[0].link
+            img(src=url)
