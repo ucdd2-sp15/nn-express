@@ -7,10 +7,10 @@ module.exports = function(app) {
 		var notesData = app.db.get('notes')
 
 		var q = {
-            '_id': req.params.id
+            'id': parseInt(req.params.id)
         }
         var p = {
-        	'account' : {'_id':id}
+        	'account' : {'id':id}
         }
 		var account = accountsData.findOne(q, function(err, acc) {
         	notesData.find(p, function(err, notes) {

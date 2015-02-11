@@ -6,7 +6,7 @@ module.exports = function(app)
 	    var id = app.db.get('contexts')
 
 		var i = {
-			'_id':req.params.id
+			'id': parseInt(req.params.id)
 			}
 
 		var context = id.findOne(i, function(err, contexts){
