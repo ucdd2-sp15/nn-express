@@ -1,20 +1,29 @@
-module.exports = function(app) {
+module.exports = function(app) 
+{
 
-    app.get('/context/list', function(req, res) {
+    app.get('/context/list', function(req, res) 
+    {
 
-        var contexts = app.data.contexts
-        var organizations=[]
-        for(i = 0; i < contexts.length; i++){
-        	if(contexts[i].site["description"]){
-	       		if(!(~organizations.indexOf(contexts[i].site["description"]))){
-	       			organizations.push(contexts[i].site["description"])
-	       		}
-	       	}
-        }
-        res.render('contextList.jade', {
-            contexts: contexts,
-            organizations: organizations
+        var contexts = app.db.get('contexts')
+        var organizations=[]     
+        contexts.find({}, function(err, cont)
+        {
+            for(var i = 0; i < cont.length; i++)
+            {
+                if (cont[i].site['description'])
+                {
+                    if(!(~organizations.indexOf(cont[i].site['description'])))
+                    {
+                        organizations.push(cont[i].site['description'])
+                    }
+                }
+            }
+            res.render('contextList.jade', 
+            {
+                contexts: cont,
+                organizations: organizations
+            })
         })
-    })
 
+    })
 }

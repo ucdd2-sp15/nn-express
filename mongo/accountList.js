@@ -4,7 +4,7 @@ module.exports = function(app) {
 
         var accounts = app.db.get('accounts')
 
-		accounts.find({}, function(err, accs) {
+        accounts.find({}, function(err, accs) {
             res.render('accountList.jade', {
                 accounts: accs
             })
