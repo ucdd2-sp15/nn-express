@@ -4,21 +4,18 @@ block content
     include noteListPaginator              
 
     each item in notes
+      if item.medias && item.medias.length > 0
         div.row
             div.two.columns
-                if item.medias && item.medias.length > 0
-                    - // compute a url to an automatically resized image (by Cloudinary)
-                    - var url = item.medias[0].link.replace('upload/','upload/w_50,h_50,c_fill/')
-                    img(src=url, width="50")
-                else
-                    | no image
+                  - // compute a url to an automatically resized image (by Cloudinary)
+                  - var url = item.medias[0].link.replace('upload/','upload/w_50,h_50,c_fill/')
+                  img(src=url, width="50")
             div.four.columns
                 a(href='/note/view/' + item.id)
                     = item.content
             div.two.columns            
                 a(href='/account/view/' + item.account.id)
-                    = item.account.username                
+                  = item.account.username                
             div.two.columns                
                 = item.kind                    
-
     include noteListPaginator
