@@ -1,41 +1,22 @@
-module.exports = function(app) 
-{
+module.exports = function(app) {
 
-    app.get('/note/view/:id', function(req, res) 
-    {
+    app.get('/note/view/:id', function(req, res) {
 
-        // TODO: get the correct note by id
-        var id = app.db.get('id') //req.params.id
-        //var note = app.data.notes.id
-       /* function findById(element){
-        	if(element.id == id)
-        		return element
-        }*/
-        var n = 
-        {
-            'id': req.params.id
+        // get the notes collection
+        var allNotes = app.db.get('notes')
+
+        //It gets unhappy if the ID is a string, so make it an int
+        var myID = parseInt(req.params.id)
+
+         var q = {
+            'id': myID
         }
 
-        var note = id.findOne(n, function(err, item) 
-        {
-
-            res.render('noteView.jade', 
-            {
+        var notes = allNotes.findOne(q, function(err, item) {
+            res.render('noteView.jade', {
                 note: item
             })
         })
-/*
-        for(i = 0; i < (app.db.notes).length; i++){
-        	if((app.data.notes[i]).id == id){
-        		note=app.data.notes[i]
-        		break
-        	}
-        }
-        //var note = (app.data.notes).find(findById)
 
-        res.render('noteView.jade', {
-            note: note
-        })
-*/
     })
 }
