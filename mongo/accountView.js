@@ -6,28 +6,24 @@ module.exports = function(app) {
 		var accountsData = app.db.get('accounts')
 		var notesData = app.db.get('notes')
 
-		var account = {}
-		for(i = 0; i< (accountsData).length; i++){
-			if(accountsData[i].id == id){
-			account = accountsData[i]
-			break
-			}
-		}
+		var q = {
+            '_id': req.params.id
+        }
+        var p = {
+        	'account' : {'_id':id}
+        }
+		var account = accountsData.findOne(q, function(err, acc) {
+        	notesData.find(p, function(err, notes) {
+        		console.log(acc)
+            	console.log('WWWWWWWWWWWWWWW')
+            	console.log(notes)
+            	res.render('accountView.jade', {
+	            	account: acc,
+	            	notes: notes
+	        	})
+        	})
+        })
 
-	    	var id = req.params.id
-
-	        var notes = notesData.filter(function(item){
-	            if(item.account){
-	            	if(item.account.id){
-	            		if(item.account.id == id) return item
-	            	}
-	            }
-	        })
-
-	        res.render('accountView.jade', {
-	            account: account,
-	            notes: notes
-	        })
     })
 
 }
