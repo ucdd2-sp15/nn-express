@@ -19,6 +19,8 @@ app.use(express.static(__dirname + '/public'));
 require('./mongo/accountList')(app)
 require('./mongo/accountView')(app)
 require('./mongo/noteView')(app)
+require('./mongo/contextList')(app)
+require('./mongo/contextView')(app)
 
 var server = app.listen(3000, function() {
 
