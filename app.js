@@ -3,7 +3,6 @@ var app = express()
 
 var _ = require('lodash')
 
-
 app.data = {}
 app.data.notes = require('./data/notes.json').data
 app.data.accounts = require('./data/accounts.json').data
@@ -27,7 +26,6 @@ require('./routes/accountView')(app)
 require('./routes/accountList')(app)
 require('./routes/contextView')(app)
 require('./routes/contextList')(app)
-
 
 app.set('port', (process.env.PORT || 3000))
 
