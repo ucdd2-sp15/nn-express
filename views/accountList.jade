@@ -11,7 +11,7 @@ block content
     each item in accounts
         div.row
             div.three.columns               
-                a(href='/account/view/' + (item.id - 1))
+                a(href='/account/view/' + (item.id))
                     = item.username
             div.three.columns
                 = item.email

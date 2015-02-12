@@ -16,11 +16,9 @@ module.exports = function(app) {
         accounts.find(q, {
             limit: 20
         }, function(err, accounts) {
-
             res.render('accountList.jade', {
-                accounts: accounts
-            })
+                accounts: accounts,
+          })
         })
-
     })
 }
