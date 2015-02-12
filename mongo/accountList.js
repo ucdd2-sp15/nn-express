@@ -1,24 +1,17 @@
 module.exports = function(app) {
 	
-	app.get('/list/restaurants', function(req, res) {
+	app.get('/list/accounts', function(req, res) {
 
 		// get the business collection
-		var business = app.db.get('business')
-
-		// compose a query to look up docs whose 'categories' field contains the word 'Doctors'
-		var q = {
-			'categories': {
-				$in: ['Restaurants']
-			}
-		}
+		var business = app.db.get('accounts')
 
 		// execute the query to find those matched limiting to 20
-		business.find(q, {
+		business.find({}, {
 			limit: 20
-		}, function(err, rests) {
+		}, function(err, accs) {
 
-			res.render('listRestaurants.jade', {
-				restaurants: rests
+			res.render('accountList.jade', {
+				accounts: accs
 			})
 		})
 
