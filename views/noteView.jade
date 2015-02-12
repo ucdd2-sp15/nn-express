@@ -1,8 +1,34 @@
 extends layout
 
 block content
-    h1= note.content
-    each m in note.medias
-        - // compute a url to an automatically resized image (by Cloudinary)
-        - var url = m.link.replace('upload/','upload/w_500,c_fit/')
-        img(src=url, width="500")
+
+	h1= note.content
+	each m in note.medias
+		div.row
+			div.seven.columns
+				- // compute a url to an automatically resized image (by Cloudinary)
+				- var url = m.link.replace('upload/','upload/w_500,c_fit/')
+				img(src=url, width="500")
+			div.five.columns
+				div.row
+					= note.account.username
+				div.row
+					= new Date(note.created_at)
+				div.row
+					= note.context.description
+				div.row
+					| Longitude: 
+					= note.longitude
+				div.row
+					| Latitude:
+					= note.latitude 
+
+		div.row
+			hr
+			each f in note.feedbacks
+				- var icon_url = f.account.icon_url
+				- console.log(f.account.icon_url);
+				img(src=icon_url, width="50").vcenter.add-margin
+				= f.kind + ": "
+				= f.content
+				hr

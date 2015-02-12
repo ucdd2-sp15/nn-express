@@ -3,7 +3,6 @@ var app = express()
 
 var _ = require('lodash')
 
-
 app.data = {}
 app.data.notes = require('./data/notes.json').data
 app.data.accounts = require('./data/accounts.json').data
@@ -28,7 +27,6 @@ require('./routes/accountList')(app)
 require('./routes/contextView')(app)
 require('./routes/contextList')(app)
 
-
 app.set('port', (process.env.PORT || 3000))
 
 var server = app.listen(app.get('port'), function() {
@@ -36,4 +34,10 @@ var server = app.listen(app.get('port'), function() {
     var host = server.address().address
     var port = server.address().port
     console.log('App listening at http://%s:%s', host, port)
+})
+
+app.get('/account/view/:user_id', function(req, res) {
+	console.log("YEP");
+
+
 })

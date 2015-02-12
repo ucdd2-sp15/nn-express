@@ -1,8 +1,10 @@
 extends layout.jade
 
 block content
-    each item in contexts
-        div.row
+   each contextItems, value in contexts
+      h3= value
+      each item in contextItems
+         div.row
             div.eight.columns               
-                a(href='/context/view/' + item.id)
-                    = item.title
+               a(href='/context/view/' + item.id)
+                  = item.title
