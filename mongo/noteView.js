@@ -3,12 +3,12 @@ module.exports = function(app) {
         // get the notes collection
         var notes = app.db.get('notes');
 
-        console.log(notes.length);        
         var q = {
-            'id': req.params.id            
+            'id': parseInt(req.params.id)
         }
 
         var note = notes.findOne(q, function(err, item) {
+          
             res.render('noteView.jade', {
                 note: item
             })
