@@ -16,8 +16,9 @@ app.set('view engine', 'jade');
 // set where the static contents are (e.g., css, js)
 app.use(express.static(__dirname + '/public'));
 
-
 require('./mongo/accountList')(app)
+require('./mongo/accountView')(app)
+
 
 var server = app.listen(3000, function() {
 
