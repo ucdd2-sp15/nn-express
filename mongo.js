@@ -17,10 +17,11 @@ app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/public'));
 
 
-require('./mongo/doctorList')(app)
-require('./mongo/doctorView')(app)
-require('./mongo/restaurantList')(app)
-require('./mongo/restaurantView')(app)
+require('./mongo/accountList')(app)
+require('./mongo/accountView')(app)
+require('./mongo/contextList')(app)
+require('./mongo/contextView')(app)
+require('./mongo/noteView')(app)
 
 var server = app.listen(3000, function() {
 
