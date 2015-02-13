@@ -16,20 +16,17 @@ app.set('view engine', 'jade');
 // set where the static contents are (e.g., css, js)
 app.use(express.static(__dirname + '/public'));
 
-
 // default to index
 app.get('/', function(req, res) {
     res.render('index.jade')
 })
 
-// load routes for note, account, context
-require('./routes/noteView')(app)
-require('./routes/noteList')(app)
-require('./routes/accountView')(app)
-require('./routes/accountList')(app)
-require('./routes/contextView')(app)
-require('./routes/contextList')(app)
-
+require('./mongo/accountList')(app)
+require('./mongo/accountView')(app)
+require('./mongo/contextList')(app)
+require('./mongo/contextView')(app)
+require('./mongo/noteList.js')(app)
+require('./mongo/noteView.js')(app)
 
 var server = app.listen(3000, function() {
 
