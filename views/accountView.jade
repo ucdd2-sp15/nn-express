@@ -3,3 +3,9 @@ extends layout
 block content
     h1= account.name
     h3= account.username
+    
+    div.ten.column
+        each item in notes
+            if (item.account.name === account.name)
+                if (item.medias && item.medias.length > 0)
+                    img(height='100' width='100' src=item.medias[0].link)

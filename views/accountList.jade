@@ -3,6 +3,20 @@ extends layout.jade
 block content
     each item in accounts
         div.row
-            div.eight.columns               
+            div.two.columns               
                 a(href='/account/view/' + item.id)
-                    = item.username            
+                    = item.username   
+            div.three.columns
+                    if(item.name)               
+                        = item.name
+                    else 
+                        ! no name  
+            div.four.columns               
+                    if(item.email)
+                        = item.email 
+                    else 
+                        ! no email
+            div.three.columns               
+                    - var d = new Date(0)// The 0 there is the key, which sets the date to the epoch
+                    - d.setUTCMilliseconds(item.created_at)
+                    = d           
