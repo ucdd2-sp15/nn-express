@@ -24,7 +24,9 @@ require('./mongo/contextView')(app)
 //require('./mongo/noteList')(app)
 require('./mongo/noteView')(app)
 
-var server = app.listen(3000, function() {
+app.set('port', (process.env.PORT || 3000))
+
+var server = app.listen(process.env.PORT || app.get('port'), function() {
 
     var host = server.address().address
     var port = server.address().port
