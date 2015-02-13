@@ -22,4 +22,7 @@ The skeleton site is hosted publicly at
 
 [https://frozen-tor-4197.herokuapp.com/](https://frozen-tor-4197.herokuapp.com/note/list)
 
+Our mongo skeleton site is hosted publicly at
+
+[https://desolate-ridge-1376.herokuapp.com](https://desolate-ridge-1376.herokuapp.com/account/list)
 
