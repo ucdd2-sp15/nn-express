@@ -5,9 +5,7 @@ module.exports = function(app) {
         // get the business collection
         var contexts = app.db.get('contexts')
 
-         var q = {
-            'id': Number(req.params.id)
-        }           
+         var q = {'id': Number(req.params.id) }           
         
         console.log(q)
         
