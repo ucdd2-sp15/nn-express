@@ -1,5 +1,7 @@
 extends layout
 
 block content
-    h1= context.title
-    h3= context.description
+    h1= context.name
+    h3= context.kind
+    p= context.description
+    img(src=context.site.image_url)
