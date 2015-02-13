@@ -22,7 +22,7 @@ require('./mongo/accountView')(app)
 require('./mongo/contextList')(app)
 require('./mongo/contextView')(app)
 //require('./mongo/noteList')(app)
-//require('./mongo/notextView')(app)
+require('./mongo/noteView')(app)
 
 var server = app.listen(3000, function() {
 
