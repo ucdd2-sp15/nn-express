@@ -1,24 +1,18 @@
 module.exports = function(app) {
 
-	app.get('/list/users', function(req, res) {
+	app.get('/account/list', function(req, res) {
 
         // get the user collection
-        var user = app.db.get('user')
+        var accounts= app.db.get('accounts')
 
-        // compose a query to look up docs whose 'categories' field contains the word 'Doctors'
-        // var q = {
-        //     'categories': {
-        //         $in: ['Restaurants']
-        //     }
-        // }
 
         // execute the query to find those matched limiting to 20
-        user.find({}, {
+        accounts.find({}, {
             limit: 20
-        }, function(err, users) {
+        }, function(err, accounts) {
 
-            res.render('listUsers.jade', {
-                users: users
+            res.render('accountList.jade', {
+                accounts: accounts
             })
         })
 
