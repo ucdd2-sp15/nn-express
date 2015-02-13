@@ -2,5 +2,5 @@ div.row
     div.one.column Pages
     div.eleven.columns
         each pageNumber in pageNumbers                      
-            a(href='/note/list?page=' + pageNumber + '&perPage=' + 20)
+            a(href='/note/list?page=' + pageNumber + '&perPage=' + perPage)
                 button= pageNumber
