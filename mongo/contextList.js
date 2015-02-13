@@ -1,24 +1,21 @@
 module.exports = function(app) {
 
-    app.get('/account/list', function(req, res) {
+    app.get('/context/list', function(req, res) {
 
-        // get the business collection
-        var accounts = app.db.get('accounts')
+        // get the context collection
+        var contexts = app.db.get('contexts');
 
-        // compose a query to look up docs whose 'categories' field contains the word 'Doctors'
-        var q = {
-            '_model_': {
-                $in: ['Account']
-            }
-        }
-
-        // execute the query to find those matched limiting to 20
-        accounts.find(q, {
-            limit: 20
-        }, function(err, accounts) {
-            res.render('accountList.jade', {
-                accounts: accounts,
-          })
+        // execute the query to find those matched
+        contexts.find(
+            {'_model_': { $in: ["Context"] }},
+            { },        //{ limit: 20 }, 
+            function(err, items) {
+            res.render('contextList.jade', {
+                contexts: {
+                    items: items
+                    //description: description
+                }
+            })
         })
     })
 }
