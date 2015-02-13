@@ -1,18 +1,20 @@
 module.exports = function(app) {
 
-    app.get('/view/doctor/:business_id', function(req, res) {
+    app.get('/note/view/:id', function(req, res) {
 
         // get the business collection
-        var business = app.db.get('business')
+        var notes = app.db.get('notes')
 
-         var q = {
-            'business_id': req.params.business_id            
+        var q = {
+            'id': Number(req.params.id)
         }
 
-        var doctor = business.findOne(q, function(err, item) {
+        console.log(q)
 
-            res.render('viewDoctor.jade', {
-                doctor: item
+        var note = notes.findOne(q, function(err, item) {
+
+            res.render('noteView.jade', {
+                note: item
             })
         })
 
