@@ -2,7 +2,30 @@ extends layout
 
 block content
     h1= note.content
-    each m in note.medias
-        - // compute a url to an automatically resized image (by Cloudinary)
-        - var url = m.link.replace('upload/','upload/w_500,c_fit/')
-        img(src=url, width="500")
+    div.row
+        div.eight.columns
+            each m in note.medias
+                - // compute a url to an automatically resized image (by Cloudinary)
+                - var url = m.link.replace('upload/','upload/w_500,c_fit/')
+                img(src=url, width="500")
+        div.four.columns
+            h6= "Username: " + note.account.username
+            h6= "Context: " + note.context.description 
+            h6= "Latitude: " + note.latitude
+            h6= "Longitude: " + note.longitude
+    div.row
+        div.six.columns
+            each fb in note.feedbacks
+                div.row
+                    if fb.kind == "like"
+                        div.twelve.columns
+                            h6= "Like: " + fb.content
+                    else if fb.kind == "Landmark"
+                        div.twelve.columns
+                            h6= fb.kind + ": " + fb.content
+                    else if fb.kind == "comment"
+                        div.twelve.columns
+                            h6= "Comment: " + fb.content
+                    else
+                        div.twelve.columns
+                            h6= fb.kind + ": " + fb.content

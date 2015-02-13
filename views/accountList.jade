@@ -1,8 +1,19 @@
 extends layout.jade
 
 block content
+    div.row(style='font-family:Comic Sans MS;font-size:150%')
+            div.three.columns
+                | Name
+            div.three.columns
+                | Email
+            div.three.columns
+                | Affiliatioin
     each item in accounts
         div.row
-            div.eight.columns               
-                a(href='/account/view/' + item.id)
-                    = item.username            
+            div.three.columns               
+                a(href='/account/view/' + (item.id))
+                    = item.username
+            div.three.columns
+                = item.email
+            div.three.columns
+                = item.affiliation            
