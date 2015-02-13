@@ -1,10 +1,13 @@
     # nn-express
 
 # Heroku
-Live at:
+Week 1 Assignment Live at:
 
-http://sleepy-ocean-9791.herokuapp.com/
+http://sleepy-ocean-9791.herokuapp.com/account/list
 
+Week 2 Assignment Live at: 
+
+https://desolate-ridge-1376.herokuapp.com/account/list
 
 # Install
 
