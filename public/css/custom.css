@@ -18,3 +18,11 @@ img {
 	border: 1px #aaa solid;
 	padding: 2px;
 }
+
+.vcenter {
+  vertical-align: middle;
+}
+
+.add-margin {
+  margin: 15px;
+}
