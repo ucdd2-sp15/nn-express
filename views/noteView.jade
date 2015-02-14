@@ -3,6 +3,38 @@ extends layout
 block content
     h1= note.content
     each m in note.medias
-        - // compute a url to an automatically resized image (by Cloudinary)
         - var url = m.link.replace('upload/','upload/w_500,c_fit/')
-        img(src=url, width="500")
+            img(src=url, width="500")
+    br
+    div.ten.columns
+        div.row
+            div.three.columns 
+                b User's Name :
+            div.three.columns
+                =note.account.username
+        div.row
+            div.three.columns 
+                b Date :
+            div.three.columns
+                =Date(note.created_at)
+        div.row
+            div.three.columns 
+                b Context :
+            div.ten.columns
+                =note.context.description
+        div.row
+            div.three.columns 
+                b Latitude :
+            div.three.columns
+                =note.latitude
+        div.row
+            div.three.columns 
+                b Longtitude :
+            div.three.columns
+                =note.longitude
+        div.row
+            div.three.columns 
+                b Feedback :
+            div.ten.columns
+                =note.feedbacks[0].account.consent
+        
