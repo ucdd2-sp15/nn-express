@@ -1,18 +1,16 @@
 module.exports = function(app) {
 
-    app.get('/view/user/:user_id', function(req, res) {
+    app.get('/account/view/:id', function(req, res) {
 
-        // get the business collection
-        var user = app.db.get('user')
+        // get the accounts collection
+        var accounts = app.db.get('accounts')
 
-         var q = {
-            'user_id': req.params.user_id           
-        }
+         var q = { 'id': Number(req.params.id) }
 
-        var user = user.findOne(q, function(err, item) {
+         accounts.findOne(q, function(err, account) {
 
-            res.render('viewUser.jade', {
-                user: item
+            res.render('accountView.jade', {
+                account: account
             })
         })
 
